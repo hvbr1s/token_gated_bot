@@ -3,18 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wait!</title>
+  <title>Halt!&#129497;&#8205;&#9794;</title>
+  <style>
+
+      body {
+            font-family: "Open Sans", sans-serif;
+            background-color: #0d0d0d;
+            color: white;
+            padding: 12px;
+          }
+
+      button {
+
+      text-align: left;
+      background: rgb(210, 207, 210);
+      color: rgb(7, 7, 7);         
+      cursor: pointer;
+      border: 1px solid rgb(7, 7, 7);
+      border-radius: 5px;
+      padding: 8px 16px;
+      }
+
+      button:hover {
+
+      background: orange;
+      border: 1px solid white;
+      }
+
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 </head>
 <body>
-  <p>Your Address: <span id="wallet-address"></span></p>
+  <p>My Address: <span id="wallet-address"></span></p>
   <button id="connectWallet">Connect</button>
   <button id="chat">Take me to chat</button>
 
   <div id="display"></div>
 
   <script type="text/javascript">
-    // 1. Connect metamask to our site. Get the user's address
+    
     var account = null;
 
     const connect = async () => {
@@ -30,7 +57,7 @@
     }
 
     const startChat = async () => {
-      var signature = await web3.eth.personal.sign("Message to sign", account)
+      var signature = await web3.eth.personal.sign("Access to chat bot", account)
       fetch('/auth?signature=' + signature)
       .then(function(response) {
       })
