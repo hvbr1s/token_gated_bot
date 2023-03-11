@@ -6,7 +6,6 @@ const __dirname = path.resolve();
 const Web3 = require('web3')
 const Contract = require('web3-eth-contract')
 const express = require("express");
-const fs = require('fs')
 const { Configuration, OpenAIApi } = require("openai");
 const OPENAI_API_KEY = process.env.SECRET_API_KEY
 const configuration = new Configuration({
