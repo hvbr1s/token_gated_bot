@@ -2,7 +2,6 @@ import { createRequire } from "module"
 const require = createRequire(import.meta.url)
 require('dotenv').config()
 import path from 'path';
-const __dirname = path.resolve();
 const Web3 = require('web3')
 const Contract = require('web3-eth-contract')
 const express = require("express");
@@ -21,7 +20,7 @@ const app = express();
 const web3 = new Web3("https://rpc.flashbots.net/")
 
 // middleware
-app.use(express.json())
+app.use(express.json()) 
 
 let authenticated = null
 
@@ -31,7 +30,7 @@ app.get('/' , (req, res) => {
 
 app.get('/auth', async (req, res,) =>{
 
-    var address = await web3.eth.accounts.recover("Message to sign", req.query.signature)
+    var address = await web3.eth.accounts.recover("Access to chat bot", req.query.signature)
     console.log(address)
   
     var balance = Number(await contract.methods.balanceOf(address).call())
@@ -56,7 +55,7 @@ app.get('/gpt', (req, res) => {
   }
 })
 
-app.post("/gpt", async (req, res)=> {
+app.post("/chat", async (req, res)=> {
 
   const { question } = req.body
   console.log(question)
