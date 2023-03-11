@@ -21,9 +21,7 @@ const app = express();
 const web3 = new Web3("https://rpc.flashbots.net/")
 
 // middleware
-app.use(express.json()) 
-//app.use(express.static('public/index.html'))
-//app.use(express.static('public/auth.html'))
+app.use(express.json())
 
 let authenticated = null
 
@@ -42,7 +40,6 @@ app.get('/auth', async (req, res,) =>{
     if (balance > 0) {
       authenticated = true
       res.redirect('http://localhost:4888/gpt')
-      //res.sendFile('/home/dan/gpt_projects/text_cleaner/public/index.html')  
     }      
     else {
       res.send(`You don't have the required NFT!`)
